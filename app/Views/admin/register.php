@@ -1,102 +1,83 @@
-<!doctype html>
-<html lang="en" class="h-100">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Sticky Footer Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/">
-
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.0/examples/sticky-footer/sticky-footer.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Register - Applied Information System Research - Telkom University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Applied Information System Research - Telkom University" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets_admin/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets_admin/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets_admin/css/app.css">
+    <link rel="stylesheet" href="../assets_admin/css/pages/auth.css">
+    <link rel="shortcut icon" href="../../assets_admin/images/fav.ico">
 </head>
 
-<body class="d-flex flex-column h-100">
+<body>
+    <div id="auth">
 
-    <!-- Begin page content -->
-    <main class="flex-shrink-0">
-        <div class="container">
-            <h1 class="mt-5">Register Form</h1>
-            Silahkan Daftarkan Identitas Anda
-            <hr />
-            <?php if (!empty(session()->getFlashdata('error'))) : ?>
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <h4>Periksa Entrian Form</h4>
-                    </hr />
-                    <?php echo session()->getFlashdata('error'); ?>
-                </div>
-            <?php endif; ?>
-            <form method="post" action="<?= base_url(); ?>/register/process">
-                <?= csrf_field(); ?>
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <div class="mb-3">
-                    <label for="password_conf" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="password_conf" name="password_conf">
-                </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Register</button>
-                </div>
-            </form>
-            <hr />
+        <div class="row h-100">
+            <div class="col-lg-5 col-12">
+                <div id="auth-left">
+                    <div class="auth-logo">
+                        <a href="/"><img src="../assets/images/logo-FIT.png" alt="Logo"></a>
+                    </div>
+                    <h1 class="auth-title">Sign Up</h1>
+                    <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
 
+                    <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                        <div class="alert alert-warning alert-dismissible show fade">
+                            <h4>Periksa Entrian Form</h4>
+                            </hr>
+                            <?php echo session()->getFlashdata('error'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="post" action="<?= base_url(); ?>/register/process">
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" class="form-control form-control-xl" placeholder="Nama Lengkap" id="name" name="name">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" class="form-control form-control-xl" id="username" name="username" placeholder="Username">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="password" class="form-control form-control-xl" id="password" name="password" placeholder="Password">
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="password" class="form-control form-control-xl" id="password_conf" name="password_conf" placeholder="Confirm Password">
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
+                    </form>
+                    <div class="text-center mt-5 text-lg fs-4">
+                        <p class='text-gray-600'>Already have an account? <a href="/login"
+                                class="font-bold">Log
+                                in</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
+
+                </div>
+            </div>
         </div>
-    </main>
 
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-    </footer>
-
-
-
+    </div>
 </body>
 
 </html>

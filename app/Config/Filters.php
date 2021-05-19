@@ -35,7 +35,8 @@ class Filters extends BaseConfig
 				'except' => [
 					'/',
 					'login/*',
-					'logout/*'
+					'logout/*',
+					'register/*',
 				]
 			]
 		],

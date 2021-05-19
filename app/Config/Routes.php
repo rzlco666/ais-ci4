@@ -41,6 +41,8 @@ $routes->get('/login', 'Login::index');
 $routes->post('/login/process', 'Login::process');
 $routes->get('/logout', 'Login::logout');
 
+$routes->get('/home', 'Home::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

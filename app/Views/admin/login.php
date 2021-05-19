@@ -1,72 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.79.0">
-    <title>Signin Template · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
-
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Login - Applied Information System Research - Telkom University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Applied Information System Research - Telkom University" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets_admin/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets_admin/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets_admin/css/app.css">
+    <link rel="stylesheet" href="../assets_admin/css/pages/auth.css">
+    <link rel="shortcut icon" href="../assets/images/fav.ico">
 </head>
 
-<body class="text-center">
+<body>
+    <div id="auth">
 
-    <main class="form-signin">
-        <?php if (!empty(session()->getFlashdata('error'))) : ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <?php echo session()->getFlashdata('error'); ?>
+        <div class="row h-100">
+            <div class="col-lg-5 col-12">
+                <div id="auth-left">
+                    <div class="auth-logo">
+                        <a href="/"><img src="../assets/images/logo-FIT.png" alt="Logo"></a>
+                    </div>
+                    <h1 class="auth-title">Log in.</h1>
+                    <p class="auth-subtitle mb-5">Log in with your data.</p>
+
+                    <?php if (!empty(session()->getFlashdata('error'))) : ?>
+                        <div class="alert alert-danger alert-dismissible show fade">
+                            <?php echo session()->getFlashdata('error'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
+
+                    <form method="post" action="<?= base_url(); ?>/login/process">
+                        <?= csrf_field(); ?>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" class="form-control form-control-xl" name="username" id="username" required autofocus placeholder="Username">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                        </div>
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="password" class="form-control form-control-xl" name="password" id="password" required placeholder="Password">
+                            <div class="form-control-icon">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                        </div>
+                        <div class="form-check form-check-lg d-flex align-items-end">
+                            <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label text-gray-600" for="flexCheckDefault">
+                                Keep me logged in
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                    </form>
+                </div>
             </div>
-        <?php endif; ?>
-        <form method="post" action="<?= base_url(); ?>/login/process">
-            <?= csrf_field(); ?>
-            <h1 class="h3 mb-3 fw-normal">Login</h1>
-            <input type="text" name="username" id="username" placeholder="Username" class="form-control" required autofocus>
-            <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
-            <p class="mt-5 mb-3 text-muted">&copy; Warung Belajar</p>
-        </form>
-    </main>
+            <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
 
+                </div>
+            </div>
+        </div>
 
-
+    </div>
 </body>
 
 </html>

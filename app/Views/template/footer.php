@@ -21,8 +21,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-center">
-                        <p class="text-muted mb-0"><?php echo date("Y"); ?> © <a href="https://ais-research.telkomuniversity.ac.id/">ais-research.telkomuniversity.ac.id</a></p>
-                        <p class="text-muted mb-0">Made by Timothee Creative.</p>
+                        <p class="text-muted mb-0"><?php echo date("Y"); ?> &copy; <a href="https://ais-research.telkomuniversity.ac.id/">ais-research.telkomuniversity.ac.id</a></p>
+                        <p class="text-muted mb-0">Made by <a
+                                href="https://instagram.com/timothee.creative/" target="_blank">Timotheè Creative.</a></p>
                     </div>
                 </div>
             </div>
